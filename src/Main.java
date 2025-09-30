@@ -2,14 +2,30 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        boolean[][] schedule = new boolean[8][60];
+        AppointmentBook a = new AppointmentBook(schedule);
+        //test cases 1
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        for (int i = 10; i < 15; i++) schedule[1][i] = true;
+        for (int i = 30; i < 45; i++) schedule[1][i] = true;
+        for (int i = 50; i < 60; i++) schedule[1][i] = true;
+
+        AppointmentBook b = new AppointmentBook(schedule);
+
+        //test cases 2
+        for (int i = 25; i < 30; i++) schedule[1][i] = true;
+        for (int i = 0; i < 15; i++) schedule[2][i] = true;
+        for (int i = 41; i < 60; i++) schedule[2][i] = true;
+        for (int i = 5; i < 30; i++) schedule[3][i] = true;
+        for (int i = 44; i < 60; i++) schedule[3][i] = true;
+
+        //check if table is initialized right
+        for (int i = 2; i < 5; i++) {
+            System.out.println("Period: " + i);
+            b.printPeriod(i);
         }
+
+
+
     }
 }
