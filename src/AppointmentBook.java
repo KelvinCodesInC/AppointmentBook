@@ -38,7 +38,8 @@ public class AppointmentBook
         int block = 0;
         for (int i = 0; i < 60; i++) {
             if(isMinuteFree(period, i)) {
-                if (++block == duration) return i - duration + 1;
+                block++;
+                if (block == duration) return i - duration + 1;
             } else {
                 block = 0;
             }
@@ -52,12 +53,9 @@ public class AppointmentBook
      * returns false.
      * Preconditions: 1 <= startPeriod <= endPeriod <= 8; 1 <= duration <= 60
      */
-    public boolean makeAppointment(int startPeriod, int endPeriod,
-
-                                   int duration)
-
+    public boolean makeAppointment(int startPeriod, int endPeriod, int duration)
     {
-        for (int i = startPeriod; i < endPeriod; i++) {
+        for (int i = startPeriod; i <= endPeriod; i++) {
             int freeBlock = findFreeBlock(i, duration);
             if (freeBlock > -1) {
                 reserveBlock(i, freeBlock, duration);
