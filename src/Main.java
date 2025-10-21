@@ -44,3 +44,46 @@ public class Main {
 
     }
 }
+
+
+/*
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        System.out.println(reader());
+    }
+
+    public static int reader() throws FileNotFoundException {
+        int fulfilled = 0;
+
+        File f = new File("Schedules.txt");
+        Scanner s = new Scanner(f);
+
+        for (int x = 0; x < 1000 && s.hasNextBoolean(); x++) {
+            boolean[][] schedule = new boolean[8][60];
+
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 60; j++) {
+                    schedule[i][j] = s.nextBoolean();
+                }
+            }
+
+            AppointmentBook book = new AppointmentBook(schedule);
+
+            int startPeriod = s.nextInt();
+            int endPeriod = s.nextInt();
+            int duration = s.nextInt();
+
+            if (book.makeAppointment(startPeriod, endPeriod, duration)) {
+                fulfilled++;
+            }
+
+        }
+        s.close();
+        return fulfilled;
+    }
+}
+*/
